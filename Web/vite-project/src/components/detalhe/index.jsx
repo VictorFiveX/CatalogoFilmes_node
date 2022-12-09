@@ -1,6 +1,6 @@
 
 
-import './index.css';
+import './index.scss';
 
 export default function Index() {
     return (

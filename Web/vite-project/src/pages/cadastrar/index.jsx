@@ -7,7 +7,7 @@ import './index.scss'
 export default function Index() {
     return (
         <main className='page page-cadastrar'>
-            <Menu />
+            <Menu  selecionado = 'cadastrar'/>
             <div className='container'>
                 <Cabecalho />
                 
