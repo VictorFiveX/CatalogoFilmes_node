@@ -27,7 +27,7 @@ export default function Index() {
             <div className='bem-vindo'>Seja bem-vindo, {usuario}!</div>
             <div>
                 <div className='usuario'>
-                    <span>{usuario[0]}</span>
+                    <span>{ usuario[0] } </span>
                 </div>
             </div>
         </header>

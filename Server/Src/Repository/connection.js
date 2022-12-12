@@ -14,6 +14,6 @@ const con = await mysql.createConnection({
     }
 })
 
-console.log('BD CONECTADA ')
+console.log('BD CONECTADA')
 
-export{ con }
+export{con}

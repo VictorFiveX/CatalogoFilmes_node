@@ -15,7 +15,7 @@ export default function Index() {
 
                     <div className='caixa-busca'>
                         <input type="text" placeholder='Buscar filmes por nome' />
-                        <img src='/assets/images/icon-buscar.svg' alt='buscar' />
+                        <img src='../src/assets/images/icon-buscar.svg' alt='buscar' />
                     </div>
 
                     <table>
@@ -37,9 +37,9 @@ export default function Index() {
                                 <td>04/01/05</td>
                                 <td>Sim</td>
                                 <td>
-                                    <img src='/assets/images/icon-editar.svg' alt='editar' />
+                                    <img src='../src/assets/images/icon-editar.svg' alt='editar' />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src='/assets/images/icon-remover.svg' alt='remover' />
+                                    <img src='../src/assets/images/icon-remover.svg' alt='remover' />
                                 </td>
                             </tr>
                             <tr>
@@ -49,9 +49,9 @@ export default function Index() {
                                 <td>04/01/05</td>
                                 <td>Sim</td>
                                 <td>
-                                    <img src='/assets/images/icon-editar.svg' alt='editar' />
+                                    <img src='../src/assets/images/icon-editar.svg' alt='editar' />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src='/assets/images/icon-remover.svg' alt='remover' />
+                                    <img src='../src/assets/images/icon-remover.svg' alt='remover' />
                                 </td>
                             </tr>
                             <tr>
@@ -61,9 +61,9 @@ export default function Index() {
                                 <td>04/01/05</td>
                                 <td>Sim</td>
                                 <td>
-                                    <img src='/assets/images/icon-editar.svg' alt='editar' />
+                                    <img src='../src/assets/images/icon-editar.svg' alt='editar' />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src='/assets/images/icon-remover.svg' alt='remover' />
+                                    <img src='../src/assets/images/icon-remover.svg' alt='remover' />
                                 </td>
                             </tr>
                             <tr>
@@ -73,9 +73,9 @@ export default function Index() {
                                 <td>04/01/05</td>
                                 <td>Sim</td>
                                 <td>
-                                    <img src='/assets/images/icon-editar.svg' alt='editar' />
+                                    <img src='../src/assets/images/icon-editar.svg' alt='editar' />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src='/assets/images/icon-remover.svg' alt='remover' />
+                                    <img src='../src/assets/images/icon-remover.svg' alt='remover' />
                                 </td>
                             </tr>
                             <tr>
@@ -85,9 +85,9 @@ export default function Index() {
                                 <td>04/01/05</td>
                                 <td>Sim</td>
                                 <td>
-                                    <img src='/assets/images/icon-editar.svg' alt='editar' />
+                                    <img src='../src/assets/images/icon-editar.svg' alt='editar' />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <img src='/assets/images/icon-remover.svg' alt='remover' />
+                                    <img src='../src/assets/images/icon-remover.svg' alt='remover' />
                                 </td>
                             </tr>
                           

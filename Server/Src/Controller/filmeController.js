@@ -42,6 +42,9 @@ server.post('/filme', async (req, resp)=>{
 
 server.put('/filme/:id/capa' , upload.single('capa') , async(req,resp) =>{
     try {
+        if(!req.file)
+        throw new Error('Não foi possível salvar a imagem')
+
         const { id } = req.params;
         const imagem =req.file.path;
 

@@ -59,4 +59,13 @@
         flex-grow: 1;
         text-align: right;
     }
+    #imgCapa{
+        visibility: hidden;
+        position: absolute;
+    }
+    .imagem-capa{
+        border: 1px solid #DFDFDF;
+        height: 250px;
+        width: 200px;
+    }
 }
