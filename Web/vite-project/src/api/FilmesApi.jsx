@@ -34,7 +34,7 @@ export  async function imagemFilme(id, imagem) {
 return  response.status;
 
 }
-export async function AlterarFilmes(nome, avaliacao, lancamento, disponivel, sinopse, usuario) {
+export async function AlterarFilmes(id, nome, avaliacao, lancamento, disponivel, sinopse, usuario) {
     const resposta = await api.put(`/filme/${id}`, {
         nome: nome,
         sinopse: sinopse,
@@ -46,4 +46,30 @@ export async function AlterarFilmes(nome, avaliacao, lancamento, disponivel, sin
     });   
     return resposta.data;
 
+}
+
+export async function ListarTodosFilmes(){
+    const resposta = await api.get('/filme');
+    return resposta.data;
+}
+
+export async function BuscarPorNome(nome){
+    const resposta = await api.get(`/filme/busca?nome=${nome}`);
+    return resposta.data;
+}
+
+export async function RemoverFilme(id){
+    const resposta = await api.delete(`/filme/${id}`);
+    return resposta.status;
+}
+
+export async function BuscarPorId(id){
+    const resposta = await api.get(`/filme/${id}`);
+    return resposta.data;
+}
+
+export function BuscarImagem(imagem){
+    const r = api.getUri() + 'src/' + imagem;
+    
+    return r;
 }

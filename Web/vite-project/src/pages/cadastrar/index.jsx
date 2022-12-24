@@ -1,16 +1,18 @@
 import Menu from '../../components/menu'
 import Cabecalho from '../../components/cabecalho'
 import storage from 'local-storage';
-import {CadastrarFilmes, imagemFilme, AlterarFilmes} from '../../api/FilmesApi';
+import {CadastrarFilmes, imagemFilme, AlterarFilmes, BuscarPorId, BuscarImagem} from '../../api/FilmesApi';
 import {useState} from 'react'
 import {toast} from 'react-toastify';
+import {useParams} from 'react-router-dom';
 
 import './index.scss'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 
 
 export default function Index() {
-
 
     const [nome,setNome] = useState('');
     const [sinopse,setSinopse] = useState('');
@@ -18,8 +20,30 @@ export default function Index() {
     const [disponivel,setDisponivel] = useState(false);
     const [lancamento,setLancamento] = useState('');
     const [imagem,setImagem] = useState('');
-
     const [id,setid] = useState(0);
+
+    const {idParam} = useParams();
+
+    const Navigate = useNavigate();
+
+    useEffect(() => {
+        if(idParam){
+           carregarfilme();
+
+        }
+    }, []);
+
+
+    async function carregarfilme(){
+        const result = await BuscarPorId(idParam);
+        setid(result.id);
+        setNome(result.nome);
+        setSinopse(result.sinopse);
+        setAvaliacao(result.avaliacao);
+        setDisponivel(result.disponivel);
+        setLancamento(result.lancamento.substr(0,10));
+        setImagem(result.imagem);
+    }
 
     async function salvarClick(){
         
@@ -30,24 +54,22 @@ export default function Index() {
             }
             const usuario = storage('Usuario-Logado').id;
 
-            let idFilme = 0;
-
-
             if(id === 0){
                 const NewFilme = await CadastrarFilmes(nome,avaliacao,lancamento,disponivel,sinopse, usuario);               
                 await imagemFilme(NewFilme.id, imagem);
-
                 setid(NewFilme.id);
+
                 toast.dark('❤️Filme cadastrado com sucesso!');
             }else{
-
-                await AlterarFilmes(id,nome,avaliacao,lancamento,disponivel,sinopse, usuario);    
+                
+                await AlterarFilmes(id,nome,avaliacao,lancamento,disponivel,sinopse, usuario);
+                if(typeof (imagem) == 'object'){
+                await imagemFilme(id, imagem);  
+                }  
                 toast.dark('❤️Filme alterado com sucesso!');
 
             }
             
-
-              
 
        }catch(err){
         if(err.response)
@@ -58,25 +80,32 @@ export default function Index() {
    
     }
 
-
     function escolherImg(){
         document.getElementById('imgCapa').click();
     }
 
     function mostrarImg(){
 
-            return URL.createObjectURL(imagem);
-
+        if(typeof (imagem) == 'object'){
+            return URL.createObjectURL(imagem);   
+        }
+        else
+        {
+            return BuscarImagem(imagem);
+        }
+          
     }
 
     function NovoFilme(){
         setid(0);
         setNome('');
         setAvaliacao(0);
+        setLancamento('');
         setDisponivel(true);
         setSinopse('');
-        setLancamento('');
-        setImagem();
+        setImagem('');
+        Navigate(`/admin/cadastrar/`);
+
     }
 
     return (
@@ -95,7 +124,7 @@ export default function Index() {
                                 <div className='upload-capa'>
                                     {
                                         !imagem &&
-                                        <img src="../src/assets/images/icon-upload.svg" alt="" onClick={escolherImg}/>
+                                        <img src="/src/assets/images/icon-upload.svg" alt="" onClick={escolherImg}/>
                                     }
                                 
                                     {
